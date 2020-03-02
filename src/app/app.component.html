@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-md-8">
+      <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label ><h3>Editor</h3></label>
+
+          <quill-editor
+            [styles]="editorStyle"
+            [modules]="config"
+            formControlName="editor"
+            (onEditorCreated)="editorCreated($event)"
+          >
+          </quill-editor>
+        </div>
+
+        <button class="btn btn-primary mt-5">Submit</button>
+      </form>
+
+<!--      <button class="btn btn-primary mt-5" (click)="this.quillEditor.history.undo()">Undo</button>-->
+<!--      <button class="btn btn-primary mt-5" (click)="this.quillEditor.history.redo()">Redo</button>-->
+    </div>
+
+    <div class="col-md-4 bg-light p-4">
+      <h3>Output</h3>
+      <p class="my-5" [innerHTML]="editorContent"></p>
+    </div>
+
+  </div>
+</div>
+
+
